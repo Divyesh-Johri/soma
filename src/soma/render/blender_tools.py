@@ -88,6 +88,7 @@ def setup_scene(cfg):
         else:
             scene.render.engine = 'CYCLES'
             scene.cycles.samples = cfg.render.num_samples.cycles
+            scene.cycles.device = 'GPU'
 
         if cfg.render.resolution.change_from_blend:
             scene_resolution = cfg.render.resolution.get(scene_name, cfg.render.resolution.default)
@@ -96,6 +97,22 @@ def setup_scene(cfg):
 
         scene.render.image_settings.color_mode = 'RGBA'
     plane = [obj for collect in bpy.data.collections for obj in collect.all_objects if obj.name in ['Plane', ]][0]
+
+    ## CHANGE ADDED TO DETECT AND USE GPU
+    # Set the device_type
+    bpy.context.preferences.addons["cycles"].preferences.compute_device_type = "CUDA"
+    # Set the device and feature set
+    bpy.context.scene.cycles.device = "GPU"
+    # get_devices() to let Blender detects GPU device
+    print("----------------------------------------------")
+    for devices in bpy.context.preferences.addons['cycles'].preferences.get_devices():
+        for d in devices:
+            d.use = True
+            if d.type == 'CPU':
+                d.use = False
+            print("Device '{}' type {} : {}" . format(d.name, d.type, d.use))
+    print("----------------------------------------------")
+
     if not cfg.render.floor.enable:
         bpy.ops.object.delete({"selected_objects": [plane]})
     else:

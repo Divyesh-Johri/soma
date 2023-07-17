@@ -153,7 +153,7 @@ def evaluate_labeling_once(cfg):
                                             rtol=1e-3, atol=1e-8)
 
     res_perframe = {}
-    for t in range(T):
+    for t in range(len(aligned_res['labels_rec'])):
         if len(aligned_res['labels_rec'][t]) == 0 or (aligned_res['labels_rec'][t]) == 0:
             logger.error('A frame of mocap was not assigned to gt data. stopping the evaluation.')
             return

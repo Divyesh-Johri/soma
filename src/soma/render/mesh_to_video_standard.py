@@ -50,6 +50,23 @@ def run_blender_once(cfg, body_mesh_fname, marker_mesh_fname, png_out_fname):
     bpy.ops.object.delete({"selected_objects": [obj for colec in bpy.data.collections for obj in colec.all_objects if
                                                 obj.name in ['Body', 'Object']]})
 
+    # ## CHANGE ADDED TO DETECT AND USE GPU
+    # # Set the device_type
+    # bpy.context.preferences.addons[
+    #     "cycles"
+    # ].preferences.compute_device_type = "CUDA"
+    # # Set the device and feature set
+    # bpy.context.scene.cycles.device = "GPU"
+    # # get_devices() to let Blender detects GPU device
+    # print("----------------------------------------------")
+    # for devices in bpy.context.preferences.addons['cycles'].preferences.get_devices():
+    #     for d in devices:
+    #         d.use = True
+    #         if d.type == 'CPU':
+    #             d.use = False
+    #         print("Device '{}' type {} : {}" . format(d.name, d.type, d.use))
+    # print("----------------------------------------------")
+
     if cfg.render.show_body:
         bpy.ops.import_scene.obj(filepath=body_mesh_fname)
 
