@@ -10,7 +10,7 @@ Nima Ghorbani and Michael J. Black\
 
 SOMA **automatically transforms raw marker-based mocap point clouds** (black dots in the back) into **solved SMPL-X bodies** and **labeled markers** (colored dots).
 
-## Installation
+## Dependency Installation
 
 SOMA is originally developed in Python 3.7, PyTorch 1.8.2 LTS, for Ubuntu 20.04.2 LTS. 
 Below we prepare the python environment using [Anaconda](https://www.anaconda.com/products/individual), 
@@ -20,6 +20,8 @@ however, we opt for a simple pip package manager for installing dependencies.
 sudo apt install libatlas-base-dev
 sudo apt install libpython3.7
 sudo apt install libtbb2
+sudo apt install libfftw3
+sudo apt install ffmpeg
 
 conda create -n soma python=3.7 
 conda install -c conda-forge ezc3d
@@ -35,29 +37,30 @@ go to the root directory of SOMA code and run
 pip install -r requirements.txt
 python setup.py develop
 ````
-Copy the precompiled 
-[smpl-fast-derivatives](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=smpl-fast-derivatives.tar.bz2) 
-into your python site-packages folder, i.e. ````anaconda3/envs/soma/lib/python3.7/site-packages````.
-The final directory should look like ````anaconda3/envs/soma/lib/python3.7/site-packages/psbody/smpl````.
+Use [soma_env.txt](soma_env.txt) as reference if needed.
 
-Install the psbody.mesh library following the instructions in [https://github.com/MPI-IS/mesh](https://github.com/MPI-IS/mesh).
+Install the psbody.mesh library in [https://github.com/Divyesh-Johri/mesh](https://github.com/Divyesh-Johri/mesh).
 Hint: clone the mesh repository and run the following from the anaconda environment:  ````python setup.py install ````.
 
-To use the rendering capabilities first install an instance of Blender-2.83 LTS on your machine.
-Afterward uncompress contents of the precompiled 
-[bpy-2.83](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=blender/bpy-2.83-20200908.tar.bz2) 
-into your python site-packages folder, i.e. ````anaconda3/envs/soma/lib/python3.7/site-packages````. 
+Copy the precompiled 
+[smpl-fast-derivatives](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=smpl-fast-derivatives.tar.bz2) 
+into the installed Mesh library in your python site-packages folder, i.e. ````anaconda3/envs/soma/lib/python3.7/site-packages/psbody_mesh-0.4-py3.7-linux-x86_64.egg/psbody ````.
 
-Last but not least, the current SOMA code relies on [MoSh++](https://github.com/nghorbani/moshpp) mocap solver. 
+To use the rendering capabilities first install an instance of Blender-2.83 LTS on your machine.
+Afterward uncompress the precompiled 
+[bpy-2.83](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=blender/bpy-2.83-20200908.tar.bz2) and place its contents (``` 2.83 ``` folder and ``` bpy.so ``` file) into your python site-packages folder, i.e. ````anaconda3/envs/soma/lib/python3.7/site-packages````.
+
+Go to ```` anaconda3/envs/soma/lib/python3.7/site-packages/body_visualizer/tools/render_tools.py ````. At line 26, replace logger.sucess() with logger.success().
+
+Last but not least, the current SOMA code relies on [MoSh++](https://github.com/Divyesh-Johri/moshpp) mocap solver. 
 Please install MoSh++ following the guidelines in its repository.
 
 
-## Using SOMA
-There are multiple main parts of the codebase that we try to explain in the [Tutorials](src/tutorials):
-- [Run SOMA On MoCap Point Cloud Data](src/tutorials/run_soma_on_soma_dataset.ipynb)
-- [Label Priming an Unknown Marker Layout](src/tutorials/label_priming.ipynb)
-- [SOMA Ablative Studies](src/tutorials/ablation_study.ipynb)
-- [Solve Already Labeled MoCaps With MoSh++](src/tutorials/solve_labeled_mocap.ipynb)
+## Using SOMA on TMM100
+Follow directions in the [work directory setup file](src/soma_on_TMM100/setup/setup_work_dir.md). 
+
+Then, run the following files to perform the following tasks:
+- 
 
 ## Citation
 

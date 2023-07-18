@@ -142,8 +142,8 @@ def run_soma_on_multiple_settings(soma_expr_ids: List[str], soma_mocap_target_ds
                         assert mocap_fname == rm_spaces(mocap_fname), ValueError(
                             f'mocap_fname has space in the text: {mocap_fname}')
                         if fname_filter:
-                            # if sum([i in mocap_fname.split("/") for i in fname_filter]) < len(fname_filter): continue
-                            if not mocap_fname in fname_filter: continue
+                            if sum([i in mocap_fname.split("/") for i in fname_filter]) < len(fname_filter): continue
+                            # if not mocap_fname in fname_filter: continue
                         soma_job = soma_cfg.copy()
                         soma_job.update({
                             'mocap.fname': mocap_fname,

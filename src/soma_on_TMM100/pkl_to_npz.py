@@ -1,13 +1,14 @@
 import os.path as osp
 from moshpp.mosh_head import MoSh
 
-soma_work_base_dir = '/scratch/dkj5225/SOMA'
+soma_work_base_dir = '/scratch/dkj5225/SOMA'    # CHANGE TO FIT LOCAL ENV
 
 mosh_results_dir = 'training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100/evaluations/mosh_results_tracklet/unlabeled_TMM100'
-sequence = 2
-ds = "pred" # Or "pred" for autolabeled MoSh results
+sequence = 2    # Indicate sequence of data    
+ds = "gt"   # Or "pred" for autolabeled MoSh results
 
-for subject in range(1,11):
+for subject in range(1,11):     # Change to loop through desired subjects.
+    
     # npz_dir describes where the npz should be saved (and with what name)
     npz_dir = osp.join(
         soma_work_base_dir,
