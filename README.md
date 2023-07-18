@@ -63,7 +63,7 @@ Create a new, separate directory. This will be known as ```` work ````.
 Follow the instructions below as well as the picture at the bottom to create the proper directories and load the data.
 
 ### TMM100 dataset
-Download TMM100's marker dataset and run the Matlab file [create_datasets/save_markers.m](save_markers.m) on the data to obtain the labeled (ground-truth) and unlabeled data.
+Download TMM100's marker dataset and run the Matlab file [save_markers.m](create_datasets/save_markers.m) on the data to obtain the labeled (ground-truth) and unlabeled data.
 Place the resulting folders (```labeled_TMM100``` and ```unlabeled_TMM100```) under ```` work/support_files/evaluation_mocaps/original ````.
 
 ### Prepare Body Model and Co.
@@ -104,11 +104,11 @@ From here on, we will assume your uncompressed files and directories looks somet
 
 After installing dependencies and creating the work directory, go to `src/soma_on_TMM100` in the cloned SOMA repository.
 
-To run SOMA on TMM100, change the work base directory in `run_soma.py` and run the code.
+To run SOMA on TMM100, change the work base directory in [run_soma.py](src/soma_on_TMM100/run_soma.py) and run the code.
 
   - The results will appear in `work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100/evaluations/soma_labeled_tracklet`.
 
-To evaluate each sequence using the ground-truth data and aggregate the results, change the work base directory in `eval_soma.py` and run the code.
+To evaluate each sequence using the ground-truth data and aggregate the results, change the work base directory in [eval_soma.py](src/soma_on_TMM100/eval_soma.py) and run the code.
     
   - The results for each sequence will appear in `work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100/evaluations/soma_eval_tracklet`. The aggregated results file will appear in `work/evaluations`.
 
@@ -117,11 +117,11 @@ To evaluate each sequence using the ground-truth data and aggregate the results,
 
 Go to `src/soma_on_TMM100` in the cloned SOMA repo.
 
-To solve bodies using MoSh++ on autolabeled data (data labeled by SOMA) change the work directory in `pred_mosh.py` and run the code. Add a subject name (Subject1) to `fname_filter` to filter by subject and/or a marker sequence filename (MOCAP_MRK_1.mat) to filter by sequence. To then render the solved bodies in Blender, change the work directory in `pred_render.py` and run the code. Filtering can be done the same way.
+To solve bodies using MoSh++ on autolabeled data (data labeled by SOMA) change the work directory in [pred_mosh.py](src/soma_on_TMM100/pred_mosh.py) and run the code. Add a subject name (Subject1) to `fname_filter` to filter by subject and/or a marker sequence filename (MOCAP_MRK_1.mat) to filter by sequence. To then render the solved bodies in Blender, change the work directory in [pred_render.py](src/soma_on_TMM100/pred_render.py) and run the code. Filtering can be done the same way.
     
   - The results from MoSh++ will be in `work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100/evaluations/mosh_results_tracklet`. The meshes and images from rendering will be in `work/blender_temp` and the sequence video will be in `work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100/evaluations/blender_renders_tracklet`.
 
-To solve bodies using MoSh++ on ground-truth data change the work directory in `gt_mosh.py` and run the code. Adjust the `glob` function or assign `mocap_fnames` to a list of paths of ground-truth sequence files to filter by sequence. An example is provided in the code. To then render the solved bodies in Blender, change the work directory in `gt_render.py` and run the code. Filtering can be done the same way.
+To solve bodies using MoSh++ on ground-truth data change the work directory in [gt_mosh.py](src/soma_on_TMM100/gt_mosh.py) and run the code. Adjust the `glob` function or assign `mocap_fnames` to a list of paths of ground-truth sequence files to filter by sequence. An example is provided in the code. To then render the solved bodies in Blender, change the work directory in [gt_render.py](src/soma_on_TMM100/gt_render.py) and run the code. Filtering can be done the same way.
 
   - The results from MoSh++ will be in `work/running_just_mosh/mosh_results`. The results of meshes and images from rendering will be in `work/blender_temp_gt` and the sequence videos will be in `work/running_just_mosh/mp4_renders`. 
 
@@ -130,6 +130,6 @@ To solve bodies using MoSh++ on ground-truth data change the work directory in `
 
 Go to `src/soma_on_TMM100` in the cloned SOMA repo.
 
-To save MoSh++ data as AMASS body parameters, go to `pkl_to_npz.py`, then change the work directory and the mosh results directory (to where the MoSh data is located). `ds` helps indicate whether the MoSh data was solved on auto-labeled or ground-truth marker data.
+To save MoSh++ data as AMASS body parameters, go to [pkl_to_npz.py](src/soma_on_TMM100/pkl_to_npz.py), then change the work directory and the mosh results directory (to where the MoSh data is located). The variable `ds` helps indicate whether the MoSh data was solved on auto-labeled or ground-truth marker data.
 
   - The results will be in `work/amass_npzs`.
