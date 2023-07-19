@@ -83,8 +83,9 @@ Download the
 
 ### YAML Files
 - Go to ```` work/data/V48_02_SOMA/marker_dataset/settings.yaml ```` and ```` work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100 ```` and change any paths to fit the local environment.
-- NOTE: Check out the YAML files in `````` soma/support_data/conf/ `````` to learn more about the configurable settings. You can change every value of run configurations inside the python files, so you do not need to change the YAML files, unless you want to change the default values for future cases. 
-    - Addresses like ```` dirs.support_base_dir ```` point to a configuration key in the training YAML file; i.e. ```` soma/support_data/conf/soma_train_conf.yaml ````.
+    - Examples of both of these files with edits can be found in [example_yamls](example_yamls/).
+- NOTE: Check out the YAML files in `````` soma/support_data/conf/ `````` ([this directory](support_data/conf/)) to learn more about the configurable settings. You can change every value of run configurations inside the python files, so you do not need to change the YAML files, unless you want to change the default values for future cases. 
+    - Addresses like ```` dirs.support_base_dir ```` point to a configuration key in the run YAML file; i.e. [soma_run_conf.yaml](support_data/conf/soma_run_conf.yaml).
 
 ### Rendering
 - Download the [Blender blend files](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=blender/blend_files.tar.bz2)
@@ -102,7 +103,7 @@ From here on, we will assume your uncompressed files and directories looks somet
 
 ## Run SOMA on Unlabeled Data and Evaluate Accuracy
 
-After installing dependencies and creating the work directory, go to `src/soma_on_TMM100` in the cloned SOMA repository.
+After installing dependencies and creating the work directory, go to [src/soma_on_TMM100](src/soma_on_TMM100/) in the cloned SOMA repository.
 
 To run SOMA on TMM100, change the work base directory in [run_soma.py](src/soma_on_TMM100/run_soma.py) and run the code.
 
@@ -115,7 +116,7 @@ To evaluate each sequence using the ground-truth data and aggregate the results,
 
 ## MoSh-ing Labeled Data (Solving SMPL-X Bodies)
 
-Go to `src/soma_on_TMM100` in the cloned SOMA repo.
+Go to [src/soma_on_TMM100](src/soma_on_TMM100/) in the cloned SOMA repo.
 
 To solve bodies using MoSh++ on autolabeled data (data labeled by SOMA) change the work directory in [pred_mosh.py](src/soma_on_TMM100/pred_mosh.py) and run the code. Add a subject name (Subject1) to `fname_filter` to filter by subject and/or a marker sequence filename (MOCAP_MRK_1.mat) to filter by sequence. To then render the solved bodies in Blender, change the work directory in [pred_render.py](src/soma_on_TMM100/pred_render.py) and run the code. Filtering can be done the same way.
     
@@ -128,7 +129,7 @@ To solve bodies using MoSh++ on ground-truth data change the work directory in [
 
 ## Saving the MoSh-ed Data as an AMASS npz
 
-Go to `src/soma_on_TMM100` in the cloned SOMA repo.
+Go to [src/soma_on_TMM100](src/soma_on_TMM100/) in the cloned SOMA repo.
 
 To save MoSh++ data as AMASS body parameters, go to [pkl_to_npz.py](src/soma_on_TMM100/pkl_to_npz.py), then change the work directory and the mosh results directory (to where the MoSh data is located). The variable `ds` helps indicate whether the MoSh data was solved on auto-labeled or ground-truth marker data.
 
