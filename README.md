@@ -51,6 +51,8 @@ To use the rendering capabilities first install an instance of Blender-2.83 LTS 
 Afterward uncompress the precompiled 
 [bpy-2.83](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=blender/bpy-2.83-20200908.tar.bz2) and place its contents (``` 2.83 ``` folder and ``` bpy.so ``` file) into your python site-packages folder, i.e. ````anaconda3/envs/soma/lib/python3.7/site-packages````.
 
+Go to ```` anaconda3/envs/soma/lib/python3.7/site-packages/2.83/scripts/addons/cycles/source/kernel/kernels/cuda/kernel_config.h ````. At line 20, replace ``` #if __CUDA_ARCH__ == 300 || __CUDA_ARCH__ == 350 ``` with ``` #if __CUDA_ARCH__ >= 300 || __CUDA_ARCH__ == 350 ```. Or, perform the same alteration to a different if-statement to target a different version of CUDA, indicated by the comments in the file.
+
 Go to ```` anaconda3/envs/soma/lib/python3.7/site-packages/body_visualizer/tools/render_tools.py ````. At line 26, replace logger.sucess() with logger.success().
 
 Last but not least, the current SOMA code relies on [MoSh++](https://github.com/Divyesh-Johri/moshpp) mocap solver. 
