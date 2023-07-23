@@ -25,6 +25,7 @@ sudo apt install libfftw3
 sudo apt install ffmpeg
 
 conda create -n soma python=3.7 
+conda activate soma
 conda install -c conda-forge ezc3d
 
 pip3 install torch==1.8.2+cu102 torchvision==0.9.2+cu102 torchaudio==0.8.2 -f https://download.pytorch.org/whl/lts/1.8/torch_lts.html
@@ -40,8 +41,8 @@ python setup.py develop
 ````
 Use [soma_env.txt](soma_env.txt) as reference for package versions if needed.
 
-Install the psbody.mesh library in [https://github.com/Divyesh-Johri/mesh](https://github.com/Divyesh-Johri/mesh).
-Hint: clone the mesh repository and run the following from the anaconda environment:  ````python setup.py install ````.
+Clone the psbody.mesh library repository via [https://github.com/Divyesh-Johri/mesh](https://github.com/Divyesh-Johri/mesh).
+Then, go to its root directory and run the following from the SOMA anaconda environment:  ````python setup.py install ````.
 
 Copy the precompiled 
 [smpl-fast-derivatives](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=smpl-fast-derivatives.tar.bz2) 
@@ -56,7 +57,7 @@ Go to ```` anaconda3/envs/soma/lib/python3.7/site-packages/2.83/scripts/addons/c
 Go to ```` anaconda3/envs/soma/lib/python3.7/site-packages/body_visualizer/tools/render_tools.py ````. At line 26, replace logger.sucess() with logger.success().
 
 Last but not least, the current SOMA code relies on [MoSh++](https://github.com/Divyesh-Johri/moshpp) mocap solver. 
-Please install MoSh++ following the guidelines in its repository.
+Please install MoSh++ following the guidelines in its repository from SOMA's anaconda environment.
 
 
 ## Creating the work directory
