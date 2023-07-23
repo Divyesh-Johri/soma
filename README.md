@@ -71,7 +71,7 @@ Place the resulting folders (```labeled_TMM100``` and ```unlabeled_TMM100```) un
 ### Prepare Body Model and Co.
 <img alt="alt text" src="images/smplx_dir.png" title="SMPL-X Directory"/>
 
-Obtain a SMPL-X locked head body model for SOMA from [this link](https://smpl-x.is.tue.mpg.de/download.php).
+Obtain a SMPL-X locked head body model for SOMA (SMPL-X with removed head bun, NPZ+PKL) from [this link](https://smpl-x.is.tue.mpg.de/download.php).
 Also, download the [extra smplx data](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=smplx/extra_smplx_data.tar.bz2)
 and place it in ``` work/support_files/smplx ``` as you see in the above image.
 
@@ -91,7 +91,7 @@ Download the
 ### YAML Files
 - Go to ```` work/data/V48_02_SOMA/marker_dataset/settings.yaml ```` and ```` work/training_experiments/V48_02_SOMA/OC_05_G_03_real_000_synt_100 ```` and change any paths to fit the local environment.
     - Examples of both of these files with edits can be found in [example_yamls](example_yamls/).
-- NOTE: Check out the YAML files in `````` soma/support_data/conf/ `````` ([this directory](support_data/conf/)) to learn more about the configurable settings. You can change every value of run configurations inside the python files, so you do not need to change the YAML files, unless you want to change the default values for future cases. 
+- NOTE: Check out the YAML files in `````` soma/support_data/conf/ `````` ([this directory](support_data/conf/)) to learn more about the configurable settings for SOMA. You can change every value of run configurations inside the python files, so you do not need to change these YAML files directly, unless you want to change the default values for future cases. 
     - Addresses like ```` dirs.support_base_dir ```` point to a configuration key in the run YAML file; i.e. [soma_run_conf.yaml](support_data/conf/soma_run_conf.yaml).
 
 ### Rendering
@@ -99,11 +99,11 @@ Download the
 
 - Download the [Blender blend files](https://download.is.tue.mpg.de/download.php?domain=soma&sfile=blender/blend_files.tar.bz2)
 and place them in the new directory ```` work/support_files/blender/blend_files ```` (also shown in the image above).
-- Create a new directory ``` work/blender_temp``` and ``` work/blender_temp_gt ```.
+- Create a new directory ```work/blender_temp``` and ```work/blender_temp_gt```.
 
 <img alt="alt text" src="images/running_just_mosh_dir.png" title="GT MoSh Directory"/>
 
-- Create a new directory ``` work/running_just_mosh/mp4_renders``` and ``` work/running_just_mosh/mosh_results ``` (shown in the image above).
+- Create a new directory ```work/running_just_mosh/mp4_renders``` and ```work/running_just_mosh/mosh_results``` (shown in the image above).
 - Create a new directory ``` work/amass_npzs ``` if converting to npz format.
 
 Downloading stuff and placing it in the right location will hopefully pay off; so just hang on :)
