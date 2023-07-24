@@ -62,7 +62,7 @@ Please install MoSh++ following the guidelines in its repository from SOMA's ana
 
 ## Creating the work directory
 
-This part of the installation can be done quickly by downloading [this zipped file](https://pennstateoffice365-my.sharepoint.com/:u:/g/personal/dkj5225_psu_edu/EcpqtdHSr9FBlfRdrgvQ_2EBeVbGZAhGMCFl-MY8F3prXw?e=TNDpdL) and unzipping its contents (```SOMA/``` folder), which contains the entire work directory. Then, follow the subsection **YAML Files** below to fit the work directory to the local environment. Note that the zip contains labeled and unlabeled TMM100 marker data, access to the original marker data can be obtained from [LPAC's webpage on PSU Taiji Multimodal](http://vision.cse.psu.edu/research/dynamicsFromKinematics/index.shtml).
+This part of the installation can be done quickly by downloading [this zipped file](https://pennstateoffice365-my.sharepoint.com/:u:/g/personal/dkj5225_psu_edu/EcpqtdHSr9FBlfRdrgvQ_2EB1kdU5q9PeiUZrjQpj9JDyw) and unzipping its contents (```SOMA/``` folder), which contains the entire work directory. Then, follow the subsection **YAML Files** below to fit the work directory to the local environment. Note that the zip contains labeled and unlabeled TMM100 marker data, access to the original marker data can be obtained from [LPAC's webpage on PSU Taiji Multimodal](http://vision.cse.psu.edu/research/dynamicsFromKinematics/index.shtml).
 
 If the zipped file expires, follow all the steps below to rebuild the work directory.
 
